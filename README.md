@@ -1,103 +1,56 @@
 # Census Grants Tool Project
 
-This project is a capstone aimed at developing a web-based tool that supports novice grant applicants (SLaNT users) by providing them with the top 100 most relevant Census Bureau statistics.
+This capstone project develops a web-based tool that supports novice grant applicants (SLaNT users) by providing the top 100 relevant Census Bureau statistics with features like filtering, trend visualizations, and exportable graphics.
 
-## Project Overview
+## Repository Structure
 
-- **Objective:**  
-  Identify and display the top 100 most relevant Census Bureau statistics to assist grant applicants, with features such as data filtering, trend visualizations, and exportable graphics.
-  
-- **Key Features:**  
-  - Direct integration with the Census Bureau API for live data retrieval.
-  - Filtering options (geography, year, topical domains, etc.).
-  - Clear data definitions and citations.
-  - User-friendly, exportable data visualizations.
+- **ConnectToCensusAPI.ipynb**: Jupyter Notebook with API connection code
+- **LICENSE**: Project license
+- **README.md**: This file
+- **requirements.txt**: Python package dependencies
 
-## Progress Tracking and Changelog
+## Progress & Milestones
 
-Below is a running log of our project milestones and updates:
-
-### [YYYY-MM-DD] Project Initialization
-- Created project repository.
-- Established initial project structure.
-- Set up the README file for tracking purposes.
-
-### [YYYY-MM-DD] Census API Key Setup
-- **Reviewed Documentation:**  
-  Went through the [Census API User Guide](https://www.census.gov/data/developers/guidance/api-user-guide.html) to understand endpoints and parameters.
-  
-- **Obtained API Key:**  
-  - Signed up for the API key at the [Census API Key Signup](https://api.census.gov/data/key_signup.html).
-  - Noted the limitation of one key per email address. For development and testing, either use a shared project key or individual keys as needed.
-
-- **Integrated API Key into the Project:**  
-  - Created a `.env` file in the project root with the following entry:
-    ```
-    CENSUS_API_KEY=YOUR_CENSUS_API_KEY
-    ```
-  - Implemented code to load the API key securely using the `python-dotenv` package.
-
-### [YYYY-MM-DD] API Integration and Testing
-- Developed basic API request functions using the `requests` library.
-- Implemented error handling and logging for API requests.
-- Tested endpoints with sample queries (e.g., retrieving population data for a specific state).
-
-### [YYYY-MM-DD] Front-End & Visualization Prototyping
-- Designed initial wireframes and concept pitch for the web-based tool.
-- Started integrating data visualizations using libraries such as D3.js or Plotly.
+- **[YYYY-MM-DD] Project Initialization**: Created repository, established structure, set up README.
+- **[YYYY-MM-DD] Census API Key Setup**: Reviewed the Census API User Guide, obtained and integrated the API key via a `.env` file using `python-dotenv`.
+- **[YYYY-MM-DD] API Integration & Testing**: Developed basic API request functions and tested endpoints.
+- **[YYYY-MM-DD] Front-End & Visualization Prototyping**: Designed wireframes and began data visualizations.
 
 ## Setup Instructions
 
 ### Prerequisites
-- Python 3.7 or higher
-- Required libraries:
-  - `requests`
-  - `python-dotenv`
-- A valid Census API key (see instructions below).
 
-### Obtaining and Configuring the Census API Key
+- Python 3.7+
+- Jupyter Notebook (or JupyterLab)
+- A valid Census API key
 
-1. **Sign Up for an API Key:**
-   - Visit the [Census API Key Signup](https://api.census.gov/data/key_signup.html) page.
-   - Enter your email and request your API key (note the one-key-per-email limitation).
+### Installation
 
-2. **Store Your API Key Securely:**
-   - Create a file named `.env` in the project root.
-   - Add the following line to your `.env` file:
-     ```
-     CENSUS_API_KEY=YOUR_CENSUS_API_KEY
-     ```
-   - **Note:** Make sure this file is included in your `.gitignore` to avoid committing sensitive information.
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/Data-Science-Capstone.git
+   cd Data-Science-Capstone
+Install Dependencies:
 
-3. **Access the API Key in Your Code:**
+bash
+Copy
+pip install -r requirements.txt
+Configure Your API Key:
 
-   Example in Python:
+Create a .env file in the project root with:
+env
+Copy
+CENSUS_API_KEY=YOUR_CENSUS_API_KEY
+Ensure .env is added to your .gitignore.
+Running the Project
+Launch Jupyter Notebook:
 
-   ```python
-   import os
-   from dotenv import load_dotenv
-   import requests
+bash
+Copy
+jupyter notebook
+Then open and run the ConnectToCensusAPI.ipynb notebook.
 
-   # Load environment variables from .env file
-   load_dotenv()
-
-   # Retrieve the API key from the environment variable
-   API_KEY = os.getenv("CENSUS_API_KEY")
-   if not API_KEY:
-       raise ValueError("CENSUS_API_KEY not set in the .env file.")
-
-   # Define the base URL and parameters for the API request
-   base_url = "https://api.census.gov/data/2020/acs/acs5"
-   params = {
-       "get": "NAME,B01003_001E",  # Example: NAME and total population estimate
-       "for": "state:06",          # Example: California (state code 06)
-       "key": API_KEY
-   }
-
-   # Make the API request
-   response = requests.get(base_url, params=params)
-   if response.status_code == 200:
-       data = response.json()
-       print(data)
-   else:
-       print(f"Error: {response.status_code}")
+Future Work
+Enhance data filtering and visualization features.
+Develop a fully interactive web interface.
+Implement user authentication and personalized dashboards.
