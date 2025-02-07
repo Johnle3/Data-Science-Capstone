@@ -11,10 +11,10 @@ This capstone project develops a web-based tool that supports novice grant appli
 
 ## Progress & Milestones
 
-- **[YYYY-MM-DD] Project Initialization**: Created repository, established structure, set up README.
-- **[YYYY-MM-DD] Census API Key Setup**: Reviewed the Census API User Guide, obtained and integrated the API key via a `.env` file using `python-dotenv`.
-- **[YYYY-MM-DD] API Integration & Testing**: Developed basic API request functions and tested endpoints.
-- **[YYYY-MM-DD] Front-End & Visualization Prototyping**: Designed wireframes and began data visualizations.
+- **Project Initialization**: Created repository, established structure, set up README.
+- **Census API Key Setup**: Reviewed the Census API User Guide, obtained and integrated the API key via a `.env` file using `python-dotenv`.
+- **API Integration & Testing**: Developed basic API request functions and tested endpoints.
+- **Front-End & Visualization Prototyping**: Designed wireframes and began data visualizations.
 
 ## Setup Instructions
 
