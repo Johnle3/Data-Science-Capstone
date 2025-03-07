@@ -1,3 +1,18 @@
+# Need to run pip install -r requirements.txt before running code 
+
 python-dotenv==0.21.0
 requests==2.28.1
 
+# Requirements for App.pynb 
+dash
+dash-bootstrap-components
+plotly
+pandas
+numpy
+requests
+fiona
+geopandas
+folium
+branca
+Pillow
+matplotlib
